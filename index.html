@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Go Digital Marketing | قائمة الأسعار والطلبات</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --secondary-blue: #1976d2;
+            --accent-blue: #42a5f5;
+            --light-bg: #f5f7fa;
+            --dark-text: #2c3e50;
+            --light-text: #ffffff;
+            --whatsapp-green: #25D366;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/graphy.png'), linear-gradient(to right, var(--light-bg), #c3cfe2);
+            color: var(--dark-text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: var(--light-text);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/zCTDHTL/logo.png'), url('https://i.ibb.co/7f78vJz/Graphicsfamily3.png');
+            background-position: center 25%, center 75%;
+            background-repeat: no-repeat;
+            background-size: 280px;
+            opacity: 0.08;
+            z-index: -1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-box {
+            text-align: center;
+        }
+
+        .logo-box img {
+            height: 120px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-caption {
+            font-size: 16px;
+            margin-top: 10px;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        h1, h2 {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-top: 30px;
+            font-weight: 800;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+        
+        h2 {
+           font-size: 1.8rem;
+           margin-bottom: 20px;
+           padding-bottom: 10px;
+           border-bottom: 2px solid var(--accent-blue);
+           display: inline-block;
+        }
+
+        .section-header {
+             text-align: center;
+        }
+
+        .bilingual-title {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        main {
+            padding: 20px 30px;
+        }
+
+        /* About Us Section */
+        .intro-section {
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: #ffffffee;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+        }
+
+        table th, table td {
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        table th {
+            background-color: var(--secondary-blue);
+            color: white;
+            font-weight: 700;
+        }
+
+        table tr:hover td {
+            background-color: #e3f2fd;
+        }
+
+        .note {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+            background: #fff9c4;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #fbc02d;
+        }
+
+        /* --- Order Form Styles --- */
+        #order-form-view {
+            display: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .form-category-header {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: right;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 8px;
+        }
+
+        .form-category-header.accordion-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header i {
+            transition: transform 0.3s ease-out;
+            font-size: 1.2rem;
+        }
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        #order-form-view .form-category-header:first-of-type {
+            margin-top: 0;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.3);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .service-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 15px;
+        }
+        .service-card {
+            background-color: #f0f4f8;
+            color: var(--dark-text);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid #dfe6ec;
+        }
+        .service-card.selected {
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            font-weight: 700;
+            transform: scale(1.05);
+            border-color: var(--primary-blue);
+        }
+        
+        #file-upload-label {
+            display: block;
+            background-color: #e3f2fd;
+            color: var(--primary-blue);
+            border: 2px dashed var(--accent-blue);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #file-upload-label:hover {
+            background-color: #d1e9fc;
+        }
+        #file-upload {
+            display: none;
+        }
+        #file-upload-note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* --- Cart Summary --- */
+        #cart-summary {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        #cart-summary h3 {
+            color: var(--primary-blue);
+            margin: 0 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #cart-items-container {
+            min-height: 40px;
+        }
+        .cart-item {
+            padding: 8px 5px;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--border-color);
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .empty-cart-message {
+            color: #777;
+            text-align: center;
+            font-style: italic;
+            padding: 10px 0;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            width: fit-content;
+            margin: 10px auto;
+            padding: 12px 30px;
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background-color: #0b3c85;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+             background-color: #6c757d;
+        }
+         .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+        }
+        .btn-whatsapp:hover {
+            background-color: #1ebe5b;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Floating Order Button */
+        #floating-order-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.3s;
+        }
+
+        #floating-order-btn.visible {
+            display: inline-block;
+            opacity: 1;
+        }
+
+        #floating-order-btn:hover {
+             transform: scale(1.1);
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            padding: 20px;
+            margin-top: 20px;
+            color: #777;
+            background-color: var(--light-bg);
+        }
+        .footer-contact {
+            margin-top: 10px;
+        }
+        .footer-contact a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: var(--primary-blue);
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- =================== VIEW 1: PRICE LIST =================== -->
+    <div id="price-list-view">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-box">
+                    <img src="https://i.ibb.co/zCTDHTL/logo.png" alt="Company Logo">
+                    <div class="logo-caption">Let's Go Digital Marketing</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://i.ibb.co/7f78vJz/Graphicsfamily3.png" alt="Nasr Elsayed Logo">
+                    <div class="logo-caption">Nasr Elsayed</div>
+                </div>
+            </div>
+            <h1>🖌️ قائمة الأسعار | Price List</h1>
+            <p class="bilingual-title">الأسعار بالدولار الأمريكي (USD) والجنيه المصري (EGP)</p>
+        </div>
+        
+        <main>
+             <div class="intro-section">
+                <div class="section-header">
+                    <h2>نبذة عنا | About Us</h2>
+                </div>
+                <p>
+                    نحن في "Let's Go Digital Marketing" نقدم حلولاً إبداعية في التصميم والتسويق الرقمي لمساعدتكم على النمو والتميز. نؤمن بأن كل علامة تجارية لها قصة فريدة، ومهمتنا هي تحويل هذه القصة إلى تجربة بصرية جذابة تصل إلى قلوب وعقول جمهوركم.
+                </p>
+            </div>
+            
+             
+
+
+            <div class="section-header">
+                <h2>تصميمات السوشيال ميديا | Social Media Designs</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>منشور عادي | Standard Post</td><td>$10</td><td>500</td></tr>
+                <tr><td>منشور إعلاني | Ad Post</td><td>$12</td><td>600</td></tr>
+                <tr><td>ستوري | Story</td><td>$10</td><td>500</td></tr>
+                <tr><td>10 منشورات | 10 Posts</td><td>$60</td><td>3000</td></tr>
+                <tr><td>20 منشور + 10 ستوري | 20 Posts + 10 Stories</td><td>$110</td><td>5500</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>الهوية البصرية | Branding</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>لوجو احترافي | Logo</td><td>$25</td><td>1250</td></tr>
+                <tr><td>كارت شخصي | Business Card</td><td>$10</td><td>500</td></tr>
+                <tr><td>كارت وجهين | 2-Sided Card</td><td>$12</td><td>600</td></tr>
+                <tr><td>ورق مراسلات + ظرف | Letterhead + Envelope</td><td>$15</td><td>750</td></tr>
+                <tr><td>بروفايل شركة | Company Profile</td><td>$30+</td><td>1500+</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>التغليف وتصميم المنتجات | Packaging & Product Design</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>تصميم علبة | Box Design</td><td>$20</td><td>1000</td></tr>
+                <tr><td>ملصق منتج | Product Label</td><td>$15</td><td>750</td></tr>
+                <tr><td>كتالوج PDF | Product Catalog</td><td>$30+</td><td>1500+</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>الإعلانات والطباعة | Advertising & Print</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>بنر ويب | Web Banner</td><td>$12</td><td>600</td></tr>
+                <tr><td>رول أب | Roll-Up</td><td>$20</td><td>1000</td></tr>
+                <tr><td>بوستر | Poster</td><td>$15</td><td>750</td></tr>
+                <tr><td>فلاير وجه | Flyer One Side</td><td>$10</td><td>500</td></tr>
+                <tr><td>فلاير وجهين | Flyer Two Sides</td><td>$12</td><td>600</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>إدارة الإعلانات | Ads Management</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>إعداد إعلان ممول | Setup Paid Ad</td><td>$20</td><td>1000</td></tr>
+                <tr><td>إدارة شهرية | Monthly Management</td><td>$100</td><td>5000</td></tr>
+                <tr><td>تحليلات وتحسين | Optimization</td><td>$30</td><td>1500</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>تصميم المتاجر الإلكترونية | Online Store Design</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>متجر بسيط | Basic Store</td><td>$80</td><td>4000</td></tr>
+                <tr><td>متجر احترافي | Pro Store</td><td>$150</td><td>7500</td></tr>
+                <tr><td>إضافة منتجات وسيو | Add Products + SEO</td><td>$40</td><td>2000</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>قائمة أسعار | Price List Design</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>PDF أو صورة | PDF or Image</td><td>$10</td><td>500</td></tr>
+                <tr><td>HTML تفاعلي | Interactive HTML</td><td>$15</td><td>750</td></tr>
+            </table>
+
+            <div class="section-header">
+                <h2>خدمات إضافية | Extras</h2>
+            </div>
+            <table>
+                <tr><th>الخدمة | Service</th><th>USD</th><th>EGP</th></tr>
+                <tr><td>تعديل إضافي | Extra Revision</td><td>$10</td><td>500</td></tr>
+                <tr><td>الملفات المصدرية | Source Files</td><td>+$10</td><td>+500</td></tr>
+                <tr><td>خدمة عاجلة | Express Service</td><td>+50%</td><td>+50%</td></tr>
+            </table>
+
+            <p class="note">⚠️ الأسعار تقديرية وقابلة للتفاوض حسب تفاصيل المشروع. | Prices are estimations and negotiable depending on project details.</p>
+
+            <div class="btn-container">
+                 <button id="go-to-order-btn-main" class="btn btn-primary"><i class="fas fa-paper-plane"></i> اطلب خدمة الآن | Order Now</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- =================== VIEW 2: ORDER FORM =================== -->
+    <div id="order-form-view">
+        <header class="header">
+             <div class="logo-container">
+                <div class="logo-box">
+                    <img src="https://i.ibb.co/zCTDHTL/logo.png" alt="Company Logo">
+                    <div class="logo-caption">Let's Go Digital Marketing</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://i.ibb.co/7f78vJz/Graphicsfamily3.png" alt="Nasr Elsayed Logo">
+                    <div class="logo-caption">Nasr Elsayed</div>
+                </div>
+            </div>
+            <h1>📝 نموذج طلب خدمة | Order Form</h1>
+        </header>
+        <main>
+            <div class="btn-container" style="text-align: left; margin-bottom: 20px;">
+                <button type="button" id="back-to-prices-btn" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> العودة لقائمة الأسعار</button>
+            </div>
+            <form id="service-order-form">
+                <h3 class="form-category-header">1. اختر الخدمات المطلوبة | Select Required Services</h3>
+                <div id="services-selection-area">
+                   <!-- Service cards populated by JS -->
+                </div>
+                
+                <div id="cart-summary">
+                    <h3><i class="fas fa-shopping-basket"></i> الخدمات المختارة | Selected Services</h3>
+                    <div id="cart-items-container">
+                        <p class="empty-cart-message">لم تختر أي خدمات بعد.</p>
+                    </div>
+                </div>
+                <div class="intro-section" style="padding-top: 0;">
+                <div class="section-header">
+                    <h2>كيف نبدأ؟ | How to Start?</h2>
+                </div>
+                <p>
+                    لضمان أفضل النتائج، كل ما عليك هو تجهيز إجابات لهذه الأسئلة الأساسية عند طلب الخدمة:
+                    <br>
+                    <b>ما هو هدفك؟ • من هو جمهورك؟ • هل لديك هوية بصرية حالية؟</b>
+                </p>
+            </div>
+            
+                <div class="accordion">
+                    <h3 class="form-category-header accordion-header">
+                        <span>2. استبيان المشروع (اختياري) | Project Questionnaire (Optional)</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </h3>
+                    <div class="accordion-panel">
+                        <div style="padding-top: 20px;">
+                            <div class="form-group">
+                                <label for="q-business-name">اسم الشركة/العلامة التجارية | Company/Brand Name</label>
+                                <input type="text" id="q-business-name" placeholder="اكتب اسم شركتك هنا...">
+                            </div>
+                            <div class="form-group">
+                                <label for="q-business-field">مجال العمل والمنتجات/الخدمات | Field of Business & Products/Services</label>
+                                <input type="text" id="q-business-field" placeholder="مثال: متجر ملابس، عيادة أسنان، استشارات...">
+                            </div>
+                             <div class="form-group">
+                                <label for="q-target-audience">الجمهور المستهدف | Target Audience</label>
+                                <input type="text" id="q-target-audience" placeholder="مثال: شباب من 18-25، أمهات، شركات...">
+                            </div>
+                            <div class="form-group">
+                                <label for="q-competitors">المنافسون الرئيسيون | Main Competitors</label>
+                                <input type="text" id="q-competitors" placeholder="اذكر أسماء 2-3 منافسين وروابطهم إن أمكن.">
+                            </div>
+                            <div class="form-group">
+                                <label for="q-project-goal">الهدف الرئيسي من المشروع | Main Goal of the Project</label>
+                                <input type="text" id="q-project-goal" placeholder="مثال: زيادة المبيعات، تعزيز الوعي بالعلامة...">
+                            </div>
+                             <div class="form-group">
+                                <label for="q-budget">الميزانية التقديرية | Estimated Budget</label>
+                                <input type="text" id="q-budget" placeholder="مثال: 500$ أو 10,000 جنيه مصري">
+                            </div>
+                             <div class="form-group">
+                                <label for="q-timeline">الإطار الزمني للتسليم | Delivery Timeframe</label>
+                                <input type="text" id="q-timeline" placeholder="مثال: خلال أسبوع، في أسرع وقت ممكن...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-category-header">3. بيانات التواصل والتفاصيل النهائية | Contact & Final Details</h3>
+                <div class="form-group">
+                    <label for="customer-name">الاسم بالكامل | Full Name</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">البريد الإلكتروني | Email Address</label>
+                    <input type="email" id="customer-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">رقم الهاتف | Phone Number</label>
+                    <input type="tel" id="customer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-details">تفاصيل إضافية | Additional Details</label>
+                    <textarea id="project-details" rows="6" placeholder="أي تفاصيل أخرى تود إضافتها؟ هل لديك هوية بصرية أو ألوان معينة؟"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="file-upload" id="file-upload-label"><i class="fas fa-cloud-upload-alt"></i> أرفق ملفات (شعار، صور مرجعية)</label>
+                    <input type="file" id="file-upload" multiple>
+                    <p id="file-upload-note">ملاحظة: سيتم إرسال الطلب أولاً، ثم يمكنك إرفاق الملفات في محادثة واتساب.</p>
+                </div>
+                <div class="btn-container">
+                     <button type="submit" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <div class="footer">
+        جميع الحقوق محفوظة © Let's Go Digital Marketing | Nasr Elsayed
+        <div class="footer-contact">
+            <a href="tel:+201030378038">
+                <i class="fas fa-phone-alt"></i> 002-01030378038
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Floating "Order Now" Button -->
+<button id="floating-order-btn" class="btn btn-primary"><i class="fas fa-paper-plane"></i> اطلب الآن</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Elements ---
+    const priceListView = document.getElementById('price-list-view');
+    const orderFormView = document.getElementById('order-form-view');
+    const goToOrderBtnMain = document.getElementById('go-to-order-btn-main');
+    const floatingOrderBtn = document.getElementById('floating-order-btn');
+    const backToPricesBtn = document.getElementById('back-to-prices-btn');
+    const orderForm = document.getElementById('service-order-form');
+    const servicesSelectionArea = document.getElementById('services-selection-area');
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    const accordionHeader = document.querySelector('.accordion-header');
+
+    const updateCartDisplay = () => {
+        cartItemsContainer.innerHTML = '';
+        const selectedCards = servicesSelectionArea.querySelectorAll('.service-card.selected');
+        
+        if (selectedCards.length === 0) {
+            cartItemsContainer.innerHTML = '<p class="empty-cart-message">لم تختر أي خدمات بعد.</p>';
+        } else {
+            selectedCards.forEach(card => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.textContent = card.dataset.serviceName;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+    };
+
+    const populateServices = () => {
+        servicesSelectionArea.innerHTML = '';
+        const categoryHeaders = priceListView.querySelectorAll('.section-header');
+
+        categoryHeaders.forEach(header => {
+            const categoryTitle = header.querySelector('h2').textContent.split('|')[0].trim();
+            const table = header.nextElementSibling;
+            if (table && table.tagName === 'TABLE') {
+                const serviceCards = Array.from(table.querySelectorAll('tbody tr')).map(row => {
+                    const serviceCell = row.querySelector('td:first-child');
+                    return serviceCell ? serviceCell.textContent.split('|')[0].trim() : null;
+                }).filter(Boolean);
+
+                if (serviceCards.length > 0) {
+                    const formCategoryHeader = document.createElement('h4');
+                    formCategoryHeader.className = 'form-category-header';
+                    formCategoryHeader.textContent = categoryTitle;
+                    servicesSelectionArea.appendChild(formCategoryHeader);
+
+                    const cardContainer = document.createElement('div');
+                    cardContainer.className = 'service-cards-container';
+                    serviceCards.forEach(service => {
+                        const card = document.createElement('div');
+                        card.className = 'service-card';
+                        card.textContent = service;
+                        card.dataset.serviceName = service;
+                        cardContainer.appendChild(card);
+                    });
+                    servicesSelectionArea.appendChild(cardContainer);
+                }
+            }
+        });
+
+        servicesSelectionArea.addEventListener('click', (e) => {
+            if (e.target.classList.contains('service-card')) {
+                e.target.classList.toggle('selected');
+                updateCartDisplay(); 
+            }
+        });
+    };
+
+    const showOrderForm = () => {
+        priceListView.style.display = 'none';
+        orderFormView.style.display = 'block';
+        updateCartDisplay();
+        window.scrollTo(0, 0);
+    };
+    
+    const showPriceList = () => {
+        orderFormView.style.display = 'none';
+        priceListView.style.display = 'block';
+        window.scrollTo(0, 0);
+    };
+
+    goToOrderBtnMain.addEventListener('click', showOrderForm);
+    floatingOrderBtn.addEventListener('click', showOrderForm);
+    backToPricesBtn.addEventListener('click', showPriceList);
+
+    window.addEventListener('scroll', () => {
+        if (getComputedStyle(priceListView).display !== 'none') {
+            if (window.scrollY > 200) {
+                floatingOrderBtn.classList.add('visible');
+            } else {
+                floatingOrderBtn.classList.remove('visible');
+            }
+        } else {
+            floatingOrderBtn.classList.remove('visible');
+        }
+    });
+    
+    // Accordion Logic
+    accordionHeader.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+
+    orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // --- Gather Data ---
+        const customerName = document.getElementById('customer-name').value.trim();
+        const customerEmail = document.getElementById('customer-email').value.trim();
+        const customerPhone = document.getElementById('customer-phone').value.trim();
+        
+        const qBusinessName = document.getElementById('q-business-name').value.trim();
+        const qBusinessField = document.getElementById('q-business-field').value.trim();
+        const qTargetAudience = document.getElementById('q-target-audience').value.trim();
+        const qCompetitors = document.getElementById('q-competitors').value.trim();
+        const qProjectGoal = document.getElementById('q-project-goal').value.trim();
+        const qBudget = document.getElementById('q-budget').value.trim();
+        const qTimeline = document.getElementById('q-timeline').value.trim();
+        const projectDetails = document.getElementById('project-details').value.trim();
+        
+        const selectedCards = servicesSelectionArea.querySelectorAll('.service-card.selected');
+        const selectedServices = Array.from(selectedCards).map(card => card.dataset.serviceName);
+
+        if (!customerName || !customerEmail || !customerPhone || selectedServices.length === 0) {
+            alert("الرجاء تعبئة بيانات التواصل واختيار خدمة واحدة على الأقل.\nPlease fill your contact info and select at least one service.");
+            return;
+        }
+
+        // --- Construct WhatsApp Message ---
+        let message = `*طلب خدمة جديد | New Service Request*\n\n`;
+        
+        message += `*👤 بيانات العميل:*\n`;
+        message += `  - الاسم: ${customerName}\n`;
+        message += `  - البريد الإلكتروني: ${customerEmail}\n`;
+        message += `  - رقم الهاتف: ${customerPhone}\n\n`;
+        
+        message += `*🛠️ الخدمات المطلوبة:*\n`;
+        selectedServices.forEach(service => {
+            message += `  - ${service}\n`;
+        });
+
+        message += `\n*📋 استبيان المشروع:*\n`;
+        if(qBusinessName) message += `  - اسم النشاط: ${qBusinessName}\n`;
+        if(qBusinessField) message += `  - مجال العمل: ${qBusinessField}\n`;
+        if(qTargetAudience) message += `  - الجمهور المستهدف: ${qTargetAudience}\n`;
+        if(qCompetitors) message += `  - المنافسون: ${qCompetitors}\n`;
+        if(qProjectGoal) message += `  - الهدف من المشروع: ${qProjectGoal}\n`;
+        if(qBudget) message += `  - الميزانية: ${qBudget}\n`;
+        if(qTimeline) message += `  - الإطار الزمني: ${qTimeline}\n`;
+        
+        if (projectDetails) {
+            message += `\n*📄 تفاصيل إضافية:*\n${projectDetails}`;
+        }
+        
+        if (document.getElementById('file-upload').files.length > 0) {
+            message += `\n\n*📎 ملاحظة: تم إرفاق ملفات، سأقوم بإرسالها في المحادثة.*`;
+        }
+
+        const whatsappNumber = "201030378038";
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+    });
+
+    populateServices();
+});
+</script>
+
+</body>
+</html>
